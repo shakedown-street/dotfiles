@@ -1,6 +1,24 @@
+# prompt
+
+autoload -Uz vcs_info
+
+setopt PROMPT_SUBST
+
+precmd() {
+  vcs_info
+}
+
+zstyle ":vcs_info:git:*" formats " (%b)"
+zstyle ":vcs_info:git:*" actionformats " (%b|%a)"
+
+PROMPT="%F{green}%n@%m%f:%F{blue}%~%f%F{yellow}\${vcs_info_msg_0_}%f $ "
+
+# aliases
+
 alias reload="source $HOME/.zprofile && source $HOME/.zshrc"
-alias ll="ls -lh"
-alias la="ls -lha"
+alias ls="ls -G"
+alias ll="ls -lhG"
+alias la="ls -lhaG"
 alias grep="grep --color=auto"
 alias gs="git status"
 alias gcg="git config --edit --global"
