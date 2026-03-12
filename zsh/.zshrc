@@ -1,0 +1,8 @@
+alias reload="source $HOME/.zprofile && source $HOME/.zshrc"
+alias ll="ls -lh"
+alias la="ls -lha"
+alias grep="grep --color=auto"
+alias gs="git status"
+alias gcg="git config --edit --global"
+alias gcl="git config --edit --local"
+alias vim="nvim"
