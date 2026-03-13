@@ -36,3 +36,7 @@ alias gs="git status"
 alias gcg="git config --edit --global"
 alias gcl="git config --edit --local"
 alias vim="nvim"
+
+# load machine-specific config if it exists
+
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

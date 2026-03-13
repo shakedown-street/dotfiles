@@ -1,0 +1,12 @@
+\.git
+\.gitignore
+\.gitattributes
+
+\.DS_Store
+
+README.md
+LICENSE
+
+\.stow-global-ignore
+
+\.local$

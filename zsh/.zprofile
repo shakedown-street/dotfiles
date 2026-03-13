@@ -21,3 +21,6 @@ export PATH="$HOME/bin:$PATH"
 # editor
 export EDITOR="hx"
 export VISUAL="hx"
+
+# load machine-specific config if it exists
+[[ -f ~/.zprofile.local ]] && source ~/.zprofile.local
