@@ -2,6 +2,13 @@
 HISTSIZE=100000
 SAVEHIST=100000
 
+# home bin
+export PATH="$HOME/bin:$PATH"
+
+# editor
+export EDITOR="hx"
+export VISUAL="hx"
+
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 
@@ -18,13 +25,6 @@ export NVM_DIR="$HOME/.nvm"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
-
-# home bin
-export PATH="$HOME/bin:$PATH"
-
-# editor
-export EDITOR="hx"
-export VISUAL="hx"
 
 # completion
 autoload -Uz compinit
