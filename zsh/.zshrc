@@ -14,7 +14,7 @@ eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 
 # fzf
 source <(fzf --zsh)
-export FZF_DEFAULT_OPTS="--layout reverse --border"
+export FZF_DEFAULT_OPTS="--height 40% --layout reverse --border"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -56,8 +56,13 @@ alias ls="ls -G"
 alias ll="ls -lhG"
 alias la="ls -lhaG"
 alias grep="grep --color=auto"
+alias cat="bat --style=plain --paging=never"
+alias man="batman"
 alias gs="git status"
 alias gcg="git config --edit --global"
 alias gcl="git config --edit --local"
 alias vim="nvim"
 alias ide="zellij --layout ~/.config/zellij/layouts/ide.kdl"
+
+# alias --help to use bat
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
