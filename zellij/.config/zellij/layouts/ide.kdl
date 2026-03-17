@@ -9,26 +9,20 @@ layout {
         }
     }
     tab name="Editor" {
-        pane split_direction="vertical" {
-            pane {
-                pane name="hx" command="hx" {
-                    args "."
-                }
-                pane name="zsh" size="30%"
+        pane stacked=true {
+            pane name="hx" expanded=true command="hx" {
+                args "."
             }
+            pane name="zsh"
+            pane name="zsh"
+            pane name="zsh"
         }
     }
-    tab name="Git" {
-        pane name="lazygit" command="lazygit"
-    }
-    tab name="Files" {
-        pane name="yazi" command="yazi"
-    }
-    tab name="Terminal" {
+    tab name="Tools" {
         pane stacked=true {
-            pane name="zsh"
-            pane name="zsh"
-            pane name="zsh"
+            pane name="lazygit" command="lazygit" expanded=true
+            pane name="yazi" command="yazi"
+            pane name="search"
         }
     }
 }

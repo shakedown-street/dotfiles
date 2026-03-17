@@ -68,3 +68,12 @@ alias ide="zellij --layout ~/.config/zellij/layouts/ide.kdl"
 
 # alias --help to use bat
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+
+# a useful search function that pipes rg output to fzf and opens selection in helix at exact line
+seer() {
+  rg --line-number --no-heading --color=always "$@" \
+  | fzf --ansi --delimiter ':' \
+    --height "100%" \
+    --preview 'bat --style=numbers --color=always {1} --highlight-line {2}' \
+    --bind 'enter:execute(hx {1}:{2})'
+}
