@@ -73,7 +73,7 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 seer() {
   rg --line-number --no-heading --color=always "$@" \
   | fzf --ansi --delimiter ':' \
-    --height "100%" \
+    --height "100%" --layout reverse --border \
     --preview 'bat --style=numbers --color=always {1} --highlight-line {2}' \
     --bind 'enter:execute(hx {1}:{2})'
 }
