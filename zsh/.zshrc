@@ -66,6 +66,9 @@ alias gcl="git config --edit --local"
 alias vim="nvim"
 alias ide="zellij --layout ~/.config/zellij/layouts/ide.kdl"
 
+# silly aliases
+alias marsha="pbcopy < $HOME/marsha.txt"
+
 # alias --help to use bat
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
