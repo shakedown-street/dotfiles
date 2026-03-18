@@ -65,6 +65,7 @@ alias gcg="git config --edit --global"
 alias gcl="git config --edit --local"
 alias vim="nvim"
 alias ide="zellij --layout ~/.config/zellij/layouts/ide.kdl"
+alias ide_vim="zellij --layout ~/.config/zellij/layouts/ide_vim.kdl"
 
 # silly aliases
 alias marsha="pbcopy < $HOME/marsha.txt"
@@ -79,4 +80,12 @@ seer() {
     --height "100%" --layout reverse --border \
     --preview 'bat --style=numbers --color=always {1} --highlight-line {2}' \
     --bind 'enter:execute(hx {1}:{2})'
+}
+
+seervim() {
+  rg --line-number --no-heading --color=always "$@" \
+  | fzf --ansi --delimiter ':' \
+    --height "100%" --layout reverse --border \
+    --preview 'bat --style=numbers --color=always {1} --highlight-line {2}' \
+    --bind 'enter:execute(nvim +{2} {1})'
 }
