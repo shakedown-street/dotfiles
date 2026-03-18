@@ -1,0 +1,13 @@
+[[language]]
+name = "python"
+language-servers = ["pyright"]
+
+[[language]]
+name = "typescript"
+auto-format = true
+formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
+
+[[language]]
+name = "tsx"
+auto-format = true
+formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
