@@ -34,27 +34,28 @@ return {
 
     local builtin = require("telescope.builtin")
 
-    -- file pickers
-    vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "find_files" })
-    vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "git_files" })
-    vim.keymap.set("n", "<leader>f*", builtin.grep_string, { desc = "grep_string" })
-    vim.keymap.set("n", "<leader>f/", builtin.live_grep, { desc = "live_grep" })
-
-    -- vim pickers
-    vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "buffers" })
-    vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "oldfiles" })
-    vim.keymap.set("n", "<leader>fc", builtin.commands, { desc = "commands" })
-    vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "help_tags" })
-    vim.keymap.set("n", "<leader>fq", builtin.quickfix, { desc = "quickfix" })
-    vim.keymap.set("n", "<leader>fj", builtin.jumplist, { desc = "jumplist" })
-    vim.keymap.set("n", "<leader>f'", builtin.resume, { desc = "resume" })
-    vim.keymap.set("n", "<leader>fp", builtin.pickers, { desc = "pickers" })
+    -- first class pickers
+    vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "find_files" })
+    vim.keymap.set("n", "<leader>*", builtin.grep_string, { desc = "grep_string" })
+    vim.keymap.set("n", "<leader>/", builtin.live_grep, { desc = "live_grep" })
+    vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "buffers" })
+    vim.keymap.set("n", "<leader>j", builtin.jumplist, { desc = "jumplist" })
+    vim.keymap.set("n", "<leader>'", builtin.resume, { desc = "resume" })
 
     -- lsp pickers
-    vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "lsp_references" })
-    vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "lsp_document_symbols" })
-    vim.keymap.set("n", "<leader>fS", builtin.lsp_workspace_symbols, { desc = "lsp_workspace_symbols" })
-    vim.keymap.set("n", "<leader>fd", builtin.lsp_definitions, { desc = "lsp_definitions" })
-    vim.keymap.set("n", "<leader>fD", builtin.diagnostics, { desc = "diagnostics" })
+    vim.keymap.set("n", "<leader>s", builtin.lsp_document_symbols, { desc = "lsp_document_symbols" })
+    vim.keymap.set("n", "<leader>S", builtin.lsp_workspace_symbols, { desc = "lsp_workspace_symbols" })
+    vim.keymap.set("n", "<leader>d", builtin.diagnostics, { desc = "diagnostics" })
+    vim.keymap.set("n", "grr", builtin.lsp_references, { desc = "lsp_references" })
+    vim.keymap.set("n", "grd", builtin.lsp_definitions, { desc = "lsp_definitions" })
+    vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "lsp_definitions" }) -- shortcut
+
+    -- other pickers
+    vim.keymap.set("n", "<leader>pg", builtin.git_files, { desc = "git_files" })
+    vim.keymap.set("n", "<leader>po", builtin.oldfiles, { desc = "oldfiles" })
+    vim.keymap.set("n", "<leader>pc", builtin.commands, { desc = "commands" })
+    vim.keymap.set("n", "<leader>ph", builtin.help_tags, { desc = "help_tags" })
+    vim.keymap.set("n", "<leader>pq", builtin.quickfix, { desc = "quickfix" })
+    vim.keymap.set("n", "<leader>pp", builtin.pickers, { desc = "pickers" })
   end,
 }

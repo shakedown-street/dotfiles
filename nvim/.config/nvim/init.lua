@@ -15,7 +15,7 @@ vim.opt.autoindent = true
 
 vim.opt.termguicolors = true
 
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Diagnostic open float" })
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "diagnostic.open_float" })
 
 -- disable netrw completely
 vim.g.loaded_netrw = 1
