@@ -73,7 +73,7 @@ alias marsha="pbcopy < $HOME/marsha.txt"
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 # a useful search function that pipes rg output to fzf and opens selection in nvim at exact line
-seervim() {
+seer() {
   rg --line-number --no-heading --color=always "$@" \
   | fzf --ansi --delimiter ':' \
     --height "100%" --layout reverse --border \
