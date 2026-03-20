@@ -1,3 +1,5 @@
+-- TODO: Create keybinds for cyling, sorting, pinning, and closing
+
 return {
   "akinsho/bufferline.nvim",
   version = "*",

@@ -1,3 +1,6 @@
+-- TODO: Set up nvim trouble
+-- TODO: Set up nvim-treesitter
+
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
