@@ -4,7 +4,9 @@ return {
   dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
     require("bufferline").setup({
-      diagnostics = "nvim_lsp",
+      options = {
+        diagnostics = "nvim_lsp",
+      },
     })
   end,
 }
