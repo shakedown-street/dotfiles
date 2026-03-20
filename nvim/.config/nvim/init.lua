@@ -13,4 +13,6 @@ vim.opt.softtabstop = 2
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 
+vim.opt.termguicolors = true
+
 require("config.lazy")
