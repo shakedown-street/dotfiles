@@ -7,26 +7,27 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes:2"
 
+-- NOTE: Status is shown by lualine
 vim.opt.showmode = false
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+
 -- NOTE: Can be disabled if bufferline is removed
 vim.opt.termguicolors = true
 
--- disable netrw completely
+-- NOTE: disable netrw completely
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- NOTE: Disabled in favor of guess-indent
-
--- vim.opt.expandtab = true
--- vim.opt.tabstop = 2
--- vim.opt.shiftwidth = 2
--- vim.opt.softtabstop = 2
--- vim.opt.smartindent = true
--- vim.opt.autoindent = true
+-- NOTE: These settings get overridden by guess-indent
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.tabstop = 4
 
 require("config.lazy")
 
