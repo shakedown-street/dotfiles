@@ -29,33 +29,33 @@ return {
         end, { desc = "hunk" })
 
         -- Actions
-        map("n", "<leader>gs", gitsigns.stage_hunk, { desc = "stage_hunk" })
-        map("n", "<leader>gr", gitsigns.reset_hunk, { desc = "reset_hunk" })
-        map("n", "<leader>gp", gitsigns.preview_hunk, { desc = "preview_hunk" })
-        map("n", "<leader>gi", gitsigns.preview_hunk_inline, { desc = "preview_hunk_inline" })
+        map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "stage_hunk" })
+        map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "reset_hunk" })
+        map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "preview_hunk" })
+        map("n", "<leader>hi", gitsigns.preview_hunk_inline, { desc = "preview_hunk_inline" })
 
-        map("v", "<leader>gs", function()
+        map("v", "<leader>hs", function()
           gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
         end, { desc = "stage_hunk" })
-        map("v", "<leader>gr", function()
+        map("v", "<leader>hr", function()
           gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
         end, { desc = "reset_hunk" })
 
-        map("n", "<leader>gS", gitsigns.stage_buffer, { desc = "stage_buffer" })
-        map("n", "<leader>gR", gitsigns.reset_buffer, { desc = "reset_buffer" })
+        map("n", "<leader>hS", gitsigns.stage_buffer, { desc = "stage_buffer" })
+        map("n", "<leader>hR", gitsigns.reset_buffer, { desc = "reset_buffer" })
 
-        map("n", "<leader>gb", function()
+        map("n", "<leader>hb", function()
           gitsigns.blame_line({ full = true })
         end, { desc = "blame_line" })
-        map("n", "<leader>gB", gitsigns.blame, { desc = "blame" })
+        map("n", "<leader>hB", gitsigns.blame, { desc = "blame" })
 
-        map("n", "<leader>gd", gitsigns.diffthis, { desc = "diffthis" })
-        map("n", "<leader>gD", function()
+        map("n", "<leader>hd", gitsigns.diffthis, { desc = "diffthis" })
+        map("n", "<leader>hD", function()
           gitsigns.diffthis("~")
         end, { desc = "diffthis~" })
 
-        map("n", "<leader>gq", gitsigns.setqflist, { desc = "setqflist" })
-        map("n", "<leader>gQ", function()
+        map("n", "<leader>hq", gitsigns.setqflist, { desc = "setqflist" })
+        map("n", "<leader>hQ", function()
           gitsigns.setqflist("all")
         end, { desc = "setqflist (all)" })
 

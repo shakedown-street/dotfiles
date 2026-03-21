@@ -18,7 +18,7 @@ return {
     })
 
     wk.add({
-      { "<leader>g", group = "Gitsigns" },
+      { "<leader>h", group = "Gitsigns" },
       { "<leader>p", group = "Telescope" },
       { "<leader>t", group = "Toggle" },
     })
