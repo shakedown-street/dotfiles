@@ -1,5 +1,3 @@
--- TODO: Set up telescope file browser
-
 return {
   "nvim-telescope/telescope.nvim",
   version = "*",
