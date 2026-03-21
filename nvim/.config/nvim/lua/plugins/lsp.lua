@@ -1,5 +1,3 @@
--- TODO: Set up nvim trouble
-
 return {
   "neovim/nvim-lspconfig",
   dependencies = {

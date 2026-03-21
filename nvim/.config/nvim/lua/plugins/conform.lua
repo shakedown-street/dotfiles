@@ -4,11 +4,12 @@ return {
   config = function()
     require("conform").setup({
       formatters_by_ft = {
-        typescript = { "prettier" },
-        typescriptreact = { "prettier" },
         javascript = { "prettier" },
         javascriptreact = { "prettier" },
         lua = { "stylua" },
+        python = { "black" },
+        typescript = { "prettier" },
+        typescriptreact = { "prettier" },
       },
       formatters = {
         stylua = {
@@ -22,7 +23,6 @@ return {
         end
         return {
           -- These options will be passed to conform.format()
-          timeout_ms = 500,
           lsp_format = "fallback",
         }
       end,
