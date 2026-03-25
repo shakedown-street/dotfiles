@@ -23,19 +23,12 @@ return {
         sorting_strategy = "ascending",
         vimgrep_arguments = vimgrep_arguments,
       },
-      extensions = {
-        file_browser = {
-          hidden = { file_browser = true, folder_browser = true },
-        },
-      },
       pickers = {
         find_files = {
           find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
         },
       },
     })
-
-    require("telescope").load_extension("file_browser")
 
     local builtin = require("telescope.builtin")
 
@@ -72,15 +65,5 @@ return {
 
     -- git pickers
     vim.keymap.set("n", "<leader>fg", builtin.git_status, { desc = "git_status" })
-
-    -- telescope-file-browser pickers
-
-    vim.keymap.set("n", "<space>fe", ":Telescope file_browser<CR>", { desc = "file_browser" })
-    vim.keymap.set(
-      "n",
-      "<space>fE",
-      ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-      { desc = "current_dir_file_browser" }
-    )
   end,
 }

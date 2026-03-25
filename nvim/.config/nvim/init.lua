@@ -12,12 +12,12 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.termguicolors = true
 
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+vim.g.netrw_browse_split = 0
+
 -- NOTE: Status is shown by lualine
 vim.opt.showmode = false
-
--- NOTE: disable netrw completely
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 
 -- NOTE: These settings get overridden by guess-indent
 vim.opt.expandtab = true
@@ -29,10 +29,19 @@ require("config.lazy")
 
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "diagnostic.open_float" })
 
+-- Keymaps to open netrw in a left split
+vim.keymap.set("n", "<leader>fe", function()
+  vim.cmd("Lexplore " .. vim.fn.getcwd(-1, -1))
+end, { desc = "netrw (cwd)" })
+vim.keymap.set("n", "<leader>fE", function()
+  local dir = vim.fn.expand("%:p:h")
+  vim.cmd("Lexplore " .. dir)
+end, { desc = "netrw (buffer)" })
+
+-- Open telescope whenever a file or dir isn't passed in args
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
-    -- only run if no files were passed on the command line
-    if vim.fn.argc() == 0 and vim.fn.line2byte("$") == -1 then
+    if vim.fn.argc() == 0 then
       require("telescope.builtin").find_files()
     end
   end,
