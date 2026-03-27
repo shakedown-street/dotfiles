@@ -5,8 +5,8 @@ git:
 
 # Uncomment if using helix
 
-# os:
-#   editAtLine: 'hx {{filename}}:{{line}}'
+os:
+  editAtLine: 'hx {{filename}}:{{line}}'
 
 theme:
   activeBorderColor:
