@@ -27,3 +27,13 @@ stow -D zsh
 ```
 
 Since files are symlinked, you can edit files in the repo and they'll be automatically applied.  To update just run `git pull`.
+
+#### MacOS
+
+On MacOS with homebrew installed you can instead use the install script:
+
+```bash
+./install bat ghostty helix lazygit nvim vim yazi zellij zsh
+```
+
+This will install all the required packages, additional basic tools (fd, fzf, ripgrep, zoxide etc), and dependencies such as helix language servers.
