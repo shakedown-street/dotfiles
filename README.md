@@ -15,7 +15,7 @@ brew install stow
 Clone the repo into your home directory and run stow to install symlinks:
 
 ```bash
-stow bat ghostty helix lazygit nvim yazi zellij zsh
+stow bat ghostty helix lazygit nvim vim yazi zellij zsh
 ```
 
 *Note* You can use the `--no-folding` flag to ensure that only the files are symlinked and not full directories.

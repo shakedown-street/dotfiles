@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+echo 'Installing brew dependencies'
+
+brew install golangci-lint golangci-lint-langserver gopls lua-language-server
+
+echo 'Installing npm dependencies'
+
+npm install -g bash-language-server pyright typescript-language-server vscode-langservers-extracted@4.8.0
+
+echo 'Installing pip dependencies'
+
+pip install black
+
+echo 'Finished installing lsps'
