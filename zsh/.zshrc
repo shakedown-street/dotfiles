@@ -64,6 +64,7 @@ alias gs="git status"
 alias gcg="git config --edit --global"
 alias gcl="git config --edit --local"
 alias ide="zellij --layout ~/.config/zellij/layouts/ide.kdl"
+alias treegit="tree -a -I .git"
 
 # silly aliases
 alias marsha="pbcopy < $HOME/marsha.txt"
@@ -71,11 +72,21 @@ alias marsha="pbcopy < $HOME/marsha.txt"
 # alias --help to use bat
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
-# a useful search function that pipes rg output to fzf and opens selection in helix at exact line
+# function that pipes rg output to fzf and opens selection in helix at exact line
 seer() {
-    rg --line-number --no-heading --color=always "$@" \
+    rg -S --hidden --line-number --no-heading --color=always --glob '!.git/*' "$@" \
     | fzf --ansi --delimiter ':' \
         --height "100%" --layout reverse --border \
         --preview 'bat --style=numbers --color=always {1} --highlight-line {2}' \
         --bind 'enter:execute(hx {1}:{2})'
+}
+
+# function that creates a script, makes it executable, and opens it in helix
+mkscript() {
+    local name="$1"
+    if [[ ! -f "$name" ]]; then
+        printf '%s\n\n' '#!/usr/bin/env bash' > "$name"
+        chmod +x "$name"
+    fi
+    hx "$name"
 }
