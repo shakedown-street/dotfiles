@@ -3,6 +3,18 @@ name = "bash"
 indent = { tab-width = 4, unit = "    " }
 
 [[language]]
+name = "c"
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "cpp"
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "java"
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
 name = "python"
 language-servers = ["pyright"]
 auto-format = true
