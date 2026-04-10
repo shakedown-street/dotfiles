@@ -4,6 +4,7 @@ theme = "catppuccin_macchiato"
 bufferline = "multiple"
 color-modes = true
 cursorline = true
+line-number = "relative"
 
 [editor.file-picker]
 hidden = false

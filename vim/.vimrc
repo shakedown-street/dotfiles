@@ -1,4 +1,5 @@
 set number
+set relativenumber
 set cursorline
 set scrolloff=5
 set ignorecase

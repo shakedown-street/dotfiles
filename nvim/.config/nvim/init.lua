@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.scrolloff = 5
 vim.opt.ignorecase = true
@@ -9,6 +10,7 @@ vim.opt.smartcase = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.signcolumn = "yes:2"
+vim.opt.guicursor = ""
 
 -- NOTE: These settings get overridden by guess-indent
 vim.opt.expandtab = true
@@ -19,3 +21,16 @@ vim.opt.tabstop = 4
 require("config.lazy")
 
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "diagnostic.open_float" })
+
+-- init treesitter
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "prisma", "typescript", "typescriptreact" },
+  callback = function()
+    vim.treesitter.start()
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})
+
+-- do not deselect after indenting a visual block
+vim.keymap.set("v", ">", ">gv", { noremap = true })
+vim.keymap.set("v", "<", "<gv", { noremap = true })

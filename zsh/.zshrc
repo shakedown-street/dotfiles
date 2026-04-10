@@ -6,8 +6,8 @@ SAVEHIST=100000
 export PATH="$HOME/bin:$PATH"
 
 # editor
-export EDITOR="hx"
-export VISUAL="hx"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv zsh)"
@@ -72,21 +72,21 @@ alias marsha="pbcopy < $HOME/marsha.txt"
 # alias --help to use bat
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
-# function that pipes rg output to fzf and opens selection in helix at exact line
+# function that pipes rg output to fzf and opens selection in nvim at exact line
 seer() {
     rg -S --hidden --line-number --no-heading --color=always --glob '!.git/*' "$@" \
     | fzf --ansi --delimiter ':' \
         --height "100%" --layout reverse --border \
         --preview 'bat --style=numbers --color=always {1} --highlight-line {2}' \
-        --bind 'enter:execute(hx {1}:{2})'
+        --bind 'enter:execute(nvim +{2} {1})'
 }
 
-# function that creates a script, makes it executable, and opens it in helix
+# function that creates a script, makes it executable, and opens it in nvim
 mkscript() {
     local name="$1"
     if [[ ! -f "$name" ]]; then
         printf '%s\n\n' '#!/usr/bin/env bash' > "$name"
         chmod +x "$name"
     fi
-    hx "$name"
+    nvim "$name"
 }

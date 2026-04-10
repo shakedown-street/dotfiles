@@ -5,7 +5,19 @@ return {
     {
       "mason-org/mason-lspconfig.nvim",
       opts = {
-        ensure_installed = { "lua_ls", "stylua" },
+        ensure_installed = {
+          "bashls",
+          "cssls",
+          "docker_language_server",
+          "eslint",
+          "html",
+          "lua_ls",
+          "prismals",
+          "remark_ls",
+          "stylua",
+          "tailwindcss",
+          "ts_ls",
+        },
       },
     },
   },
