@@ -34,3 +34,12 @@ vim.api.nvim_create_autocmd("FileType", {
 -- do not deselect after indenting a visual block
 vim.keymap.set("v", ">", ">gv", { noremap = true })
 vim.keymap.set("v", "<", "<gv", { noremap = true })
+
+-- clear search highlight on escape key
+vim.keymap.set("n", "<Esc>", function()
+  if vim.v.hlsearch == 1 then
+    vim.cmd("nohlsearch")
+    return ""
+  end
+  return "<Esc>"
+end, { expr = true })
