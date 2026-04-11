@@ -20,7 +20,7 @@ vim.opt.tabstop = 4
 
 require("config.lazy")
 
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "diagnostic.open_float" })
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "diagnostic.open_float" })
 
 -- init treesitter
 vim.api.nvim_create_autocmd("FileType", {
