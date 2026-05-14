@@ -1,57 +1,60 @@
-# increase history size
 HISTSIZE=100000
 SAVEHIST=100000
 
-# home bin
-export PATH="$HOME/bin:$PATH"
+# opts
+setopt HIST_IGNORE_DUPS
+setopt PROMPT_SUBST
 
-# editor
+# env
+export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+# path 
+export PATH="$HOME/bin:$PATH"
+
 # homebrew
-eval "$(/opt/homebrew/bin/brew shellenv zsh)"
-
-# fzf
-source <(fzf --zsh)
-export FZF_DEFAULT_OPTS="--height 40% --layout reverse --border"
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [[ -x /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+command -v pyenv >/dev/null && eval "$(pyenv init - zsh)"
 
-# this is just here so that lazygit finds the config file in ~/.config
-export XDG_CONFIG_HOME="$HOME/.config"
-
-# completion
-autoload -Uz compinit
-compinit -C
-
-zstyle ':completion:*' menu select
-
-# zoxide
-# NOTE: zoxide must be placed after compinit
-eval "$(zoxide init zsh)"
-
-# prompt
-autoload -Uz vcs_info
-
-setopt PROMPT_SUBST
-
-precmd() {
-    vcs_info
+# nvm (lazy load)
+export NVM_DIR="$HOME/.nvm"
+nvm() {
+    unset -f nvm
+    [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+    nvm "$@"
 }
 
-zstyle ":vcs_info:git:*" formats " (%b)"
-zstyle ":vcs_info:git:*" actionformats " (%b|%a)"
+# completion
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' menu select
+autoload -Uz compinit
+compinit
 
-PROMPT="%F{green}%n@%m%f:%F{blue}%~%f%F{yellow}\${vcs_info_msg_0_}%f $ "
+# fzf
+if command -v fzf >/dev/null; then
+    source <(fzf --zsh)
+    export FZF_DEFAULT_OPTS="--height 40% --layout reverse --border"
+fi
+
+# zoxide
+if command -v zoxide >/dev/null; then
+    eval "$(zoxide init zsh)"
+fi
+
+# prompt
+zstyle ":vcs_info:git:*" formats "%F{yellow} (%b)%f"
+zstyle ":vcs_info:git:*" actionformats "%F{yellow} (%b|%a)%f"
+autoload -Uz vcs_info
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd vcs_info
+PROMPT=$'%F{green}%n@%m%f:%F{blue}%~%f${vcs_info_msg_0_} $ '
 
 # aliases
 alias reload="source $HOME/.zshrc"
@@ -65,14 +68,11 @@ alias gcg="git config --edit --global"
 alias gcl="git config --edit --local"
 alias ide="zellij --layout ~/.config/zellij/layouts/ide.kdl"
 alias treegit="tree -a -I .git"
-
-# silly aliases
 alias marsha="pbcopy < $HOME/marsha.txt"
-
 # alias --help to use bat
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
-# function that pipes rg output to fzf and opens selection in nvim at exact line
+# pipes rg output to fzf and opens selection in nvim at matching line
 seer() {
     rg -S --hidden --line-number --no-heading --color=always --glob '!.git/*' "$@" \
     | fzf --ansi --delimiter ':' \
@@ -81,7 +81,7 @@ seer() {
         --bind 'enter:execute(nvim +{2} {1})'
 }
 
-# function that creates a script, makes it executable, and opens it in nvim
+# creates a script, makes it executable, and opens it in nvim
 mkscript() {
     local name="$1"
     if [[ ! -f "$name" ]]; then
