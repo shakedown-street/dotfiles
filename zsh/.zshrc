@@ -6,7 +6,6 @@ setopt HIST_IGNORE_DUPS
 setopt PROMPT_SUBST
 
 # env
-export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="nvim"
 export VISUAL="nvim"
 

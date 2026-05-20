@@ -24,14 +24,6 @@ helix_install() {
     stow helix
 }
 
-lazygit_install() {
-    echo 'Installing lazygit'
-    brew install lazygit
-
-    echo "Creating lazygit symlinks in $HOME"
-    stow lazygit
-}
-
 nvim_install() {
     echo 'Installing nvim'
     brew install nvim
@@ -70,7 +62,6 @@ handle_package() {
     case "$package" in
         ghostty) ghostty_install ;;
         helix) helix_install ;;
-        lazygit) lazygit_install ;;
         nvim) nvim_install ;;
         vim) vim_install ;;
         yazi) yazi_install ;;

@@ -1,8 +1,0 @@
-git:
-  pagers:
-    - pager:
-    - pager: delta --dark --paging=never --side-by-side
-
-# uncomment if using helix
-# os:
-#   editAtLine: 'hx {{filename}}:{{line}}'
