@@ -72,7 +72,7 @@ handle_package() {
 }
 
 echo 'Installing basic tools'
-brew install fd fzf ripgrep stow zoxide
+brew install bat bat-extras fd fzf lazygit ripgrep stow zoxide
 echo 'Installing font'
 brew install font-hack-nerd-font
 
