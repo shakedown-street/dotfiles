@@ -10,18 +10,9 @@ if ! command -v brew >/dev/null 2>&1; then
     exit 1
 fi
 
-bat_install() {
-    echo 'Installing bat and bat-extras'
-    brew install bat bat-extras
-
-    echo "Creating bat symlinks in $HOME"
-    stow bat
-}
-
 ghostty_install() {
     echo 'Installing ghostty'
     brew install ghostty
-
     echo "Creating ghostty symlinks in $HOME"
     stow ghostty
 }
@@ -64,12 +55,13 @@ lazygit_install() {
 nvim_install() {
     echo 'Installing nvim'
     brew install nvim
-
     echo "Creating nvim symlinks in $HOME"
     stow nvim
 }
 
 vim_install() {
+    echo 'Installing vim'
+    brew install vim
     echo "Creating vim symlinks in $HOME"
     stow vim
 }
@@ -77,7 +69,6 @@ vim_install() {
 yazi_install() {
     echo 'Installing yazi'
     brew install yazi
-
     echo "Creating yazi symlinks in $HOME"
     stow yazi
 }
@@ -85,7 +76,6 @@ yazi_install() {
 zellij_install() {
     echo 'Installing zellij'
     brew install zellij
-
     echo "Creating zellij symlinks in $HOME"
     stow zellij
 }
@@ -97,9 +87,7 @@ zsh_install() {
 
 handle_package() {
     local package=$1
-
     case "$package" in
-        bat) bat_install ;;
         ghostty) ghostty_install ;;
         helix) helix_install ;;
         lazygit) lazygit_install ;;
