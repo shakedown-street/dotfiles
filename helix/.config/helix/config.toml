@@ -33,4 +33,4 @@ right = [
 ]
 
 [keys.normal.space]
-x = ":bc"
+q = ":bc"

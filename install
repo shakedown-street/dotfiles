@@ -20,26 +20,6 @@ ghostty_install() {
 helix_install() {
     echo 'Installing helix'
     brew install evil-helix 
-
-    echo 'Installing language servers'
-
-    echo 'Installing from brew...'
-    brew install golangci-lint golangci-lint-langserver gopls lua-language-server
-
-    if command -v npm >/dev/null 2>&1; then
-        echo 'Installing from npm...'
-        npm install -g bash-language-server pyright typescript-language-server vscode-langservers-extracted@4.8.0
-    else
-        echo 'npm not found, skipping npm language servers'
-    fi
-
-    if command -v pip >/dev/null 2>&1; then
-        echo 'Installing from pip...'
-        pip install black
-    else
-        echo 'pip not found, skipping pip language servers'
-    fi
-
     echo "Creating helix symlinks in $HOME"
     stow helix
 }
