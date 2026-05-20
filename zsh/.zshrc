@@ -22,13 +22,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 command -v pyenv >/dev/null && eval "$(pyenv init - zsh)"
 
-# nvm (lazy load)
+# nvm
 export NVM_DIR="$HOME/.nvm"
-nvm() {
-    unset -f nvm
-    [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
-    nvm "$@"
-}
+[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 
 # completion
 zstyle ':completion:*' use-cache on
