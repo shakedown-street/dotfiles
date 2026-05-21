@@ -18,7 +18,7 @@ return {
           "remark_ls",
           "stylua",
           "tailwindcss",
-          "ts_ls",
+          "tsgo",
         },
       },
     },
