@@ -9,7 +9,7 @@ return {
         max_number = 3,
       },
     })
-    require("mini.icons").setup()
+    -- require("mini.icons").setup()
     require("mini.jump").setup()
     -- require("mini.pairs").setup()
     require("mini.statusline").setup()
@@ -22,7 +22,7 @@ return {
 
     vim.keymap.set("n", "<leader>E", function()
       local buf_name = vim.api.nvim_buf_get_name(0)
-      files.open(buf_name ~= "" and buf_name)
+      files.open(buf_name ~= "" and buf_name or nil)
     end, { desc = "MiniFiles.open at buffer" })
   end,
 }
