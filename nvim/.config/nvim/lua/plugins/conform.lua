@@ -4,6 +4,7 @@ return {
     require("conform").setup({
       formatters_by_ft = {
         css = { "prettier" },
+        htmldjango = { "djlint" },
         javascript = { "prettier" },
         javascriptreact = { "prettier" },
         lua = { "stylua" },

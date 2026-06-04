@@ -36,6 +36,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "dockerfile",
     "go",
     "html",
+    "htmldjango",
     "javascript",
     "javascriptreact",
     "json",

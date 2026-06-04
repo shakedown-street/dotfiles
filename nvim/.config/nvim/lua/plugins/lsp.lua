@@ -15,7 +15,6 @@ return {
           "lua_ls",
           "prismals",
           "pyright",
-          "remark_ls",
           "stylua",
           "tailwindcss",
           "tsgo",
