@@ -4,11 +4,13 @@ return {
   build = ":TSUpdate",
   config = function()
     local parsers = {
+      "angular",
       "bash",
       "css",
       "dockerfile",
       "go",
       "html",
+      "htmldjango",
       "javascript",
       "json",
       "kdl",

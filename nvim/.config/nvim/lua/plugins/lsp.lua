@@ -6,6 +6,7 @@ return {
       "mason-org/mason-lspconfig.nvim",
       opts = {
         ensure_installed = {
+          "angularls",
           "bashls",
           "cssls",
           "docker_language_server",
