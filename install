@@ -71,8 +71,13 @@ handle_package() {
     esac
 }
 
+echo 'Updating brew'
+brew update
+brew upgrade
+echo 'Installing stow'
+brew install stow
 echo 'Installing basic tools'
-brew install bat bat-extras fd fzf lazygit ripgrep stow zoxide
+brew install bat bat-extras curl fd fzf lazygit ripgrep stow zoxide
 echo 'Installing font'
 brew install font-hack-nerd-font
 
