@@ -71,6 +71,8 @@ vim.keymap.set("n", "<Esc>", function()
   return "<Esc>"
 end, { expr = true })
 
-vim.keymap.set("n", "<leader>q", function()
+vim.keymap.set("n", "<leader>cc", function()
   vim.cmd("bd")
-end, { desc = "bdelete" })
+end, { desc = "Close current buffer" })
+
+vim.keymap.set("n", "<leader>ca", "<cmd>%bd<cr>", { desc = "Close all buffers" })

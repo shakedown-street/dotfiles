@@ -14,7 +14,7 @@ return {
     -- require("mini.pairs").setup()
     require("mini.statusline").setup()
     require("mini.surround").setup()
-    require("mini.tabline").setup()
+    -- require("mini.tabline").setup()
 
     vim.keymap.set("n", "<leader>e", function()
       files.open()
