@@ -9,6 +9,7 @@ return {
           "angularls",
           "bashls",
           "cssls",
+          "djlsp",
           "docker_language_server",
           "eslint",
           "gopls",

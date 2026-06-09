@@ -4,10 +4,13 @@ return {
     require("conform").setup({
       formatters_by_ft = {
         css = { "prettier" },
+        html = { "prettier" },
         htmldjango = { "djlint" },
         javascript = { "prettier" },
         javascriptreact = { "prettier" },
+        json = { "prettier" },
         lua = { "stylua" },
+        markdown = { "prettier" },
         python = { "black" },
         scss = { "prettier" },
         typescript = { "prettier" },
