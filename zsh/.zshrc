@@ -62,6 +62,8 @@ alias gs="git status"
 alias gcg="git config --edit --global"
 alias gcl="git config --edit --local"
 alias ide="zellij --layout ~/.config/zellij/layouts/ide.kdl"
+alias mkvenv="python -m venv .venv"
+alias venv="source .venv/bin/activate"
 alias treegit="tree -a -I .git"
 alias marsha="pbcopy < $HOME/marsha.txt"
 # alias --help to use bat
