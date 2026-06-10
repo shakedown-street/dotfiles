@@ -15,10 +15,10 @@ brew install stow
 Clone the repo into your home directory and run stow to install symlinks:
 
 ```bash
-stow ghostty helix nvim vim yazi zellij zsh
+stow ghostty helix nvim nvim-vscode vim yazi zellij zsh
 ```
 
-*Note* You can use the `--no-folding` flag to ensure that only the files are symlinked and not full directories.
+_Note_ You can use the `--no-folding` flag to ensure that only the files are symlinked and not full directories.
 
 To remove a packages symlinks:
 
@@ -26,14 +26,14 @@ To remove a packages symlinks:
 stow -D zsh
 ```
 
-Since files are symlinked, you can edit files in the repo and they'll be automatically applied.  To update just run `git pull`.
+Since files are symlinked, you can edit files in the repo and they'll be automatically applied. To update just run `git pull`.
 
 #### MacOS
 
 On MacOS with homebrew installed you can instead use the install script:
 
 ```bash
-./install ghostty helix nvim vim yazi zellij zsh
+./install ghostty helix nvim nvim-vscode vim yazi zellij zsh
 ```
 
 This will install all the required packages and fonts.

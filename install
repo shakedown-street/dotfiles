@@ -31,6 +31,11 @@ nvim_install() {
     stow nvim
 }
 
+nvim_install() {
+    echo "Creating nvim-vscode symlinks in $HOME"
+    stow nvim-vscode
+}
+
 vim_install() {
     echo 'Installing vim'
     brew install vim
@@ -63,6 +68,7 @@ handle_package() {
         ghostty) ghostty_install ;;
         helix) helix_install ;;
         nvim) nvim_install ;;
+        nvim-vscode) nvim_install ;;
         vim) vim_install ;;
         yazi) yazi_install ;;
         zellij) zellij_install ;;
