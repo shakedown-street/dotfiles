@@ -20,7 +20,11 @@ fi
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-command -v pyenv >/dev/null && eval "$(pyenv init - zsh)"
+if command -v pyenv >/dev/null 2>&1; then
+    if [[ -z "$VIRTUAL_ENV" ]]; then
+        eval "$(pyenv init - zsh)"
+    fi
+fi
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
