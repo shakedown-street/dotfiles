@@ -20,8 +20,11 @@ vim.opt.tabstop = 4
 
 require("config.lazy")
 
+-- definition
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "definition" })
+
 -- diagnostics
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "diagnostic.open_float" })
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "diagnostic" })
 vim.diagnostic.config({
   signs = {
     priority = 5,
@@ -71,8 +74,9 @@ vim.keymap.set("n", "<Esc>", function()
   return "<Esc>"
 end, { expr = true })
 
+-- close buffers
 vim.keymap.set("n", "<leader>cc", function()
   vim.cmd("bd")
-end, { desc = "Close current buffer" })
+end, { desc = "close buffer" })
 
-vim.keymap.set("n", "<leader>ca", "<cmd>%bd<cr>", { desc = "Close all buffers" })
+vim.keymap.set("n", "<leader>ca", "<cmd>%bd<cr>", { desc = "close all buffers" })

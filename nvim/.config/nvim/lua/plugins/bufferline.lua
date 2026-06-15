@@ -18,7 +18,7 @@ return {
           vim.cmd("BufferLineCycleNext")
         end
       end,
-      desc = "Next buffer",
+      desc = "buffer",
     },
     {
       "[b",
@@ -27,7 +27,7 @@ return {
           vim.cmd("BufferLineCyclePrev")
         end
       end,
-      desc = "Prev buffer",
+      desc = "buffer",
     },
     {
       "]B",
@@ -35,34 +35,34 @@ return {
         local els = require("bufferline").get_elements().elements
         vim.cmd("BufferLineGoToBuffer " .. #els)
       end,
-      desc = "Last buffer",
+      desc = "last buffer",
     },
-    { "[B", "<cmd>BufferLineGoToBuffer 1<cr>", desc = "First buffer" },
+    { "[B", "<cmd>BufferLineGoToBuffer 1<cr>", desc = "first buffer" },
 
-    { "<leader>ch", "<cmd>BufferLineCloseLeft<cr>", desc = "Close buffers to the left" },
-    { "<leader>cl", "<cmd>BufferLineCloseRight<cr>", desc = "Close buffers to the right" },
-    { "<leader>co", "<cmd>BufferLineCloseOthers<cr>", desc = "Close all other buffers" },
+    { "<leader>ch", "<cmd>BufferLineCloseLeft<cr>", desc = "close buffers to the left" },
+    { "<leader>cl", "<cmd>BufferLineCloseRight<cr>", desc = "close buffers to the right" },
+    { "<leader>co", "<cmd>BufferLineCloseOthers<cr>", desc = "close other buffers" },
 
     {
-      "<leader>rh",
+      "<leader>mh",
       function()
         for _ = 1, vim.v.count1 do
           vim.cmd("BufferLineMovePrev")
         end
       end,
-      desc = "Move buffer left",
+      desc = "move buffer left",
     },
     {
-      "<leader>rl",
+      "<leader>ml",
       function()
         for _ = 1, vim.v.count1 do
           vim.cmd("BufferLineMoveNext")
         end
       end,
-      desc = "Move buffer right",
+      desc = "move buffer right",
     },
     {
-      "<leader>rH",
+      "<leader>mH",
       function()
         local els = require("bufferline").get_elements().elements
         local cur = vim.api.nvim_get_current_buf()
@@ -75,10 +75,10 @@ return {
           end
         end
       end,
-      desc = "Move buffer to far left",
+      desc = "move buffer to far left",
     },
     {
-      "<leader>rL",
+      "<leader>mL",
       function()
         local els = require("bufferline").get_elements().elements
         local cur = vim.api.nvim_get_current_buf()
@@ -91,7 +91,7 @@ return {
           end
         end
       end,
-      desc = "Move buffer to far right",
+      desc = "move buffer to far right",
     },
   },
 }
