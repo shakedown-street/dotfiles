@@ -3,6 +3,6 @@ cursor-style-blink = false
 font-family = Hack Nerd Font Mono
 font-thicken = true
 shell-integration-features = no-cursor
-theme = Catppuccin Macchiato
+theme = Nord
 window-padding-x = 4
 window-padding-y = 4
