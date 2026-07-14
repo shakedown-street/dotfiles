@@ -2,44 +2,44 @@ vim.cmd("highlight clear")
 vim.o.termguicolors = true
 
 local palettes = {
-  nord = {
-    background = "#2e3440",
-    surface = "#3b4252",
-    border = "#434c5e",
-    overlay = "#4c566a",
-    muted = "#d8dee9",
-    subtle = "#e5e9f0",
-    foreground = "#eceff4",
-    info = "#8fbcbb",
-    accent = "#88c0d0",
-    primary = "#81a1c1",
-    highlight = "#5e81ac",
-    error = "#bf616a",
-    warning = "#ebcb8b",
-    success = "#a3be8c",
-  },
-  catppuccin = {
-    background = "#24273a",
-    surface = "#1e2030",
-    border = "#363a4f",
-    overlay = "#494d64",
-    muted = "#cad3f5",
-    subtle = "#b8c0e0",
-    foreground = "#cad3f5",
-    info = "#91d7e3",
-    accent = "#8aadf4",
-    primary = "#c6a0f6",
-    highlight = "#5b6078",
-    error = "#ed8796",
-    warning = "#eed49f",
-    success = "#a6da95",
-  },
+	nord = {
+		background = "#2e3440",
+		surface = "#3b4252",
+		border = "#434c5e",
+		overlay = "#4c566a",
+		muted = "#d8dee9",
+		subtle = "#e5e9f0",
+		foreground = "#eceff4",
+		info = "#8fbcbb",
+		accent = "#88c0d0",
+		primary = "#81a1c1",
+		highlight = "#5e81ac",
+		error = "#bf616a",
+		warning = "#ebcb8b",
+		success = "#a3be8c",
+	},
+	catppuccin = {
+		background = "#24273a",
+		surface = "#1e2030",
+		border = "#363a4f",
+		overlay = "#494d64",
+		muted = "#cad3f5",
+		subtle = "#b8c0e0",
+		foreground = "#cad3f5",
+		info = "#91d7e3",
+		accent = "#8aadf4",
+		primary = "#c6a0f6",
+		highlight = "#5b6078",
+		error = "#ed8796",
+		warning = "#eed49f",
+		success = "#a6da95",
+	},
 }
 
 local c = palettes["nord"]
 
 local function hl(group, opts)
-  vim.api.nvim_set_hl(0, group, opts)
+	vim.api.nvim_set_hl(0, group, opts)
 end
 
 --[[ 

@@ -1,60 +1,60 @@
 return {
-  "nvim-telescope/telescope.nvim",
-  version = "*",
-  dependencies = {
-    "nvim-lua/plenary.nvim", -- optional but recommended
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-  },
-  config = function()
-    local telescope_config = require("telescope.config")
+	"nvim-telescope/telescope.nvim",
+	version = "*",
+	dependencies = {
+		"nvim-lua/plenary.nvim", -- optional but recommended
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	},
+	config = function()
+		local telescope_config = require("telescope.config")
 
-    local vimgrep_arguments = { unpack(telescope_config.values.vimgrep_arguments) }
+		local vimgrep_arguments = { unpack(telescope_config.values.vimgrep_arguments) }
 
-    table.insert(vimgrep_arguments, "--hidden")
-    table.insert(vimgrep_arguments, "--glob")
-    table.insert(vimgrep_arguments, "!**/.git/*")
+		table.insert(vimgrep_arguments, "--hidden")
+		table.insert(vimgrep_arguments, "--glob")
+		table.insert(vimgrep_arguments, "!**/.git/*")
 
-    require("telescope").setup({
-      defaults = {
-        layout_config = {
-          prompt_position = "top",
-        },
-        layout_strategy = "horizontal",
-        sorting_strategy = "ascending",
-        vimgrep_arguments = vimgrep_arguments,
-      },
-      pickers = {
-        find_files = {
-          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-        },
-      },
-    })
+		require("telescope").setup({
+			defaults = {
+				layout_config = {
+					prompt_position = "top",
+				},
+				layout_strategy = "horizontal",
+				sorting_strategy = "ascending",
+				vimgrep_arguments = vimgrep_arguments,
+			},
+			pickers = {
+				find_files = {
+					find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+				},
+			},
+		})
 
-    local builtin = require("telescope.builtin")
+		local builtin = require("telescope.builtin")
 
-    -- file pickers
-    vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "find_files" })
-    vim.keymap.set("n", "<leader>f*", builtin.grep_string, { desc = "grep_string" })
-    vim.keymap.set("n", "<leader>f/", builtin.live_grep, { desc = "live_grep" })
+		-- file pickers
+		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "find_files" })
+		vim.keymap.set("n", "<leader>f*", builtin.grep_string, { desc = "grep_string" })
+		vim.keymap.set("n", "<leader>f/", builtin.live_grep, { desc = "live_grep" })
 
-    -- vim pickers
-    vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "buffers" })
-    vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "oldfiles" })
-    vim.keymap.set("n", "<leader>fq", builtin.quickfix, { desc = "quickfix" })
-    vim.keymap.set("n", "<leader>fl", builtin.loclist, { desc = "loclist" })
-    vim.keymap.set("n", "<leader>fj", builtin.jumplist, { desc = "jumplist" })
-    vim.keymap.set("n", "<leader>f'", builtin.resume, { desc = "resume" })
+		-- vim pickers
+		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "buffers" })
+		vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "oldfiles" })
+		vim.keymap.set("n", "<leader>fq", builtin.quickfix, { desc = "quickfix" })
+		vim.keymap.set("n", "<leader>fl", builtin.loclist, { desc = "loclist" })
+		vim.keymap.set("n", "<leader>fj", builtin.jumplist, { desc = "jumplist" })
+		vim.keymap.set("n", "<leader>f'", builtin.resume, { desc = "resume" })
 
-    -- lsp pickers
-    vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "lsp_references" })
-    vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "lsp_document_symbols" })
-    vim.keymap.set("n", "<leader>fS", builtin.lsp_workspace_symbols, { desc = "lsp_workspace_symbols" })
-    vim.keymap.set("n", "<leader>fi", builtin.lsp_implementations, { desc = "lsp_implementations" })
-    vim.keymap.set("n", "<leader>fd", builtin.lsp_definitions, { desc = "lsp_definitions" })
-    vim.keymap.set("n", "<leader>ft", builtin.lsp_type_definitions, { desc = "lsp_type_definitions" })
-    vim.keymap.set("n", "<leader>fx", builtin.diagnostics, { desc = "diagnostics" })
+		-- lsp pickers
+		vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "lsp_references" })
+		vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "lsp_document_symbols" })
+		vim.keymap.set("n", "<leader>fS", builtin.lsp_workspace_symbols, { desc = "lsp_workspace_symbols" })
+		vim.keymap.set("n", "<leader>fi", builtin.lsp_implementations, { desc = "lsp_implementations" })
+		vim.keymap.set("n", "<leader>fd", builtin.lsp_definitions, { desc = "lsp_definitions" })
+		vim.keymap.set("n", "<leader>ft", builtin.lsp_type_definitions, { desc = "lsp_type_definitions" })
+		vim.keymap.set("n", "<leader>fx", builtin.diagnostics, { desc = "diagnostics" })
 
-    -- git pickers
-    vim.keymap.set("n", "<leader>fg", builtin.git_status, { desc = "git_status" })
-  end,
+		-- git pickers
+		vim.keymap.set("n", "<leader>fg", builtin.git_status, { desc = "git_status" })
+	end,
 }
