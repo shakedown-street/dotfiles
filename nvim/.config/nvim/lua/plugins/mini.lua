@@ -17,12 +17,10 @@ return {
 		-- require("mini.tabline").setup()
 
 		vim.keymap.set("n", "<leader>e", function()
-			files.open()
-		end, { desc = "mini.files open" })
-
-		vim.keymap.set("n", "<leader>E", function()
-			local buf_name = vim.api.nvim_buf_get_name(0)
-			files.open(buf_name ~= "" and buf_name or nil)
-		end, { desc = "mini.files open at buffer" })
+			local _ = files.close() or files.open(vim.api.nvim_buf_get_name(0), false)
+			vim.defer_fn(function()
+				files.reveal_cwd()
+			end, 30)
+		end, { desc = "mini.files toggle" })
 	end,
 }
