@@ -68,6 +68,19 @@ vim.keymap.set("v", "<", "<gv", { desc = "indent left, keep selection" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move selection down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move selection up" })
 
+-- Toggle quickfix window
+function ToggleQuickfix()
+	for _, win in ipairs(vim.fn.getwininfo()) do
+		if win.quickfix == 1 then
+			vim.cmd("cclose")
+			return
+		end
+	end
+	vim.cmd("copen")
+end
+
+vim.keymap.set("n", "<leader>q", ToggleQuickfix, { desc = "toggle quickfix" })
+
 -- clear search highlight on escape key
 vim.keymap.set("n", "<Esc>", function()
 	if vim.v.hlsearch == 1 then
