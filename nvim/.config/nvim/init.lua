@@ -1,38 +1,40 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.opt.mouse = "a"
+vim.opt.clipboard = "unnamedplus"
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undofile = true
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
-vim.opt.scrolloff = 5
+vim.opt.signcolumn = "yes:2"
+vim.opt.termguicolors = true
+
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = -1
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.signcolumn = "yes:2"
-vim.opt.guicursor = ""
-vim.opt.clipboard = "unnamedplus"
 
--- NOTE: These settings get overridden by guess-indent
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
-vim.opt.tabstop = 2
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
+
+vim.opt.completeopt = { "menu", "menuone", "noselect", "popup" }
+vim.opt.pumheight = 10
 
 require("config.lazy")
 
--- definition
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "definition" })
-
--- diagnostics
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "diagnostic" })
-vim.diagnostic.config({
-	signs = {
-		priority = 5,
-	},
-})
-
--- init treesitter
+-- treesitter start
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
 		"bash",
@@ -62,9 +64,34 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- definition
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+		if client and client:supports_method("textDocument/definition") then
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
+				buffer = args.buf,
+				desc = "vim.lsp.buf.definition()",
+				silent = true,
+			})
+		end
+	end,
+})
+
+-- diagnostics
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "diagnostic" })
+vim.diagnostic.config({
+	signs = {
+		priority = 5,
+	},
+})
+
 -- do not deselect after indenting a visual block
-vim.keymap.set("v", ">", ">gv", { desc = "indent right, keep selection" })
-vim.keymap.set("v", "<", "<gv", { desc = "indent left, keep selection" })
+vim.keymap.set("v", "<", "<gv", { desc = "indent left" })
+vim.keymap.set("v", ">", ">gv", { desc = "indent right" })
+
+-- move current selection up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move selection down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move selection up" })
 
@@ -91,8 +118,6 @@ vim.keymap.set("n", "<Esc>", function()
 end, { expr = true })
 
 -- close buffers
-vim.keymap.set("n", "<leader>cc", function()
-	vim.cmd("bd")
-end, { desc = "close buffer" })
-
-vim.keymap.set("n", "<leader>ca", "<cmd>%bd<cr>", { desc = "close all buffers" })
+vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "delete buffer" })
+vim.keymap.set("n", "<leader>ba", "<cmd>%bdelete<CR>", { desc = "delete all buffers" })
+vim.keymap.set("n", "<leader>bl", "<cmd>buffers<CR>", { desc = "list buffers" })
