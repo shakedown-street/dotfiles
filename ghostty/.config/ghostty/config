@@ -1,5 +1,6 @@
 font-family = Hack Nerd Font Mono
 font-thicken = true
+macos-option-as-alt = true
 theme = Nord
 window-padding-x = 4
 window-padding-y = 4

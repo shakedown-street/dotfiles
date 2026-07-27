@@ -55,6 +55,11 @@ autoload -Uz add-zsh-hook
 add-zsh-hook precmd vcs_info
 PROMPT=$'%F{green}%n@%m%f:%F{blue}%~%f${vcs_info_msg_0_} $ '
 
+# fix backwards/forwards word and delete word keybindings in zellij
+bindkey "^[f" forward-word
+bindkey "^[b" backward-word
+bindkey "^[^?" backward-kill-word
+
 # aliases
 alias reload="source $HOME/.zshrc"
 alias ls="ls -G"
