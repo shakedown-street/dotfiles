@@ -1,16 +1,22 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.opt.scrolloff = 5
+vim.opt.clipboard = "unnamedplus"
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undofile = true
+
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- vscode probably overrides these, but oh well
-vim.opt.cursorline = true
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = -1
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 
--- editor actions 
+-- editor actions
 vim.keymap.set("n", "gd", "<Cmd>call VSCodeNotify('editor.action.revealDefinition')<CR>")
 vim.keymap.set({ "n", "v" }, "gra", "<Cmd>call VSCodeNotify('editor.action.quickFix')<CR>")
 vim.keymap.set("n", "gri", "<Cmd>call VSCodeNotify('editor.action.goToImplementation')<CR>")
@@ -21,10 +27,9 @@ vim.keymap.set("n", "<leader>d", "<Cmd>call VSCodeNotify('editor.action.showHove
 vim.keymap.set("n", "grr", "<Cmd>call VSCodeNotify('references-view.findReferences')<CR>")
 
 -- workbench actions
-vim.keymap.set("n", "<leader>cc", "<Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>")
-vim.keymap.set("n", "<leader>ca", "<Cmd>call VSCodeNotify('workbench.action.closeAllEditors')<CR>")
-vim.keymap.set("n", "<leader>co", "<Cmd>call VSCodeNotify('workbench.action.closeOtherEditors')<CR>")
-vim.keymap.set("n", "<leader>cl", "<Cmd>call VSCodeNotify('workbench.action.closeEditorsToTheRight')<CR>")
+vim.keymap.set("n", "<leader>bd", "<Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>")
+vim.keymap.set("n", "<leader>ba", "<Cmd>call VSCodeNotify('workbench.action.closeAllEditors')<CR>")
+vim.keymap.set("n", "<leader>bo", "<Cmd>call VSCodeNotify('workbench.action.closeOtherEditors')<CR>")
 vim.keymap.set("n", "<leader>ff", "<Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>")
 vim.keymap.set("n", "<leader>f/", "<Cmd>call VSCodeNotify('workbench.action.findInFiles')<CR>")
 vim.keymap.set("n", "<leader>fs", "<Cmd>call VSCodeNotify('workbench.action.gotoSymbol')<CR>")
