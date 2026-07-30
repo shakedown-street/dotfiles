@@ -24,6 +24,13 @@ helix_install() {
     stow helix
 }
 
+opencode_install() {
+    echo 'Installing opencode'
+    brew install anomalyco/tap/opencode
+    echo "Creating opencode symlinks in $HOME"
+    stow opencode
+}
+
 nvim_install() {
     echo 'Installing nvim'
     brew install nvim
@@ -31,7 +38,7 @@ nvim_install() {
     stow nvim
 }
 
-nvim_install() {
+nvim_vscode_install() {
     echo "Creating nvim-vscode symlinks in $HOME"
     stow nvim-vscode
 }
@@ -67,8 +74,9 @@ handle_package() {
     case "$package" in
         ghostty) ghostty_install ;;
         helix) helix_install ;;
+        opencode) opencode_install ;;
         nvim) nvim_install ;;
-        nvim-vscode) nvim_install ;;
+        nvim-vscode) nvim_vscode_install ;;
         vim) vim_install ;;
         yazi) yazi_install ;;
         zellij) zellij_install ;;
