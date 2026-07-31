@@ -121,3 +121,21 @@ end, { expr = true })
 vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "delete buffer" })
 vim.keymap.set("n", "<leader>ba", "<cmd>%bdelete<CR>", { desc = "delete all buffers" })
 vim.keymap.set("n", "<leader>bl", "<cmd>buffers<CR>", { desc = "list buffers" })
+
+-- Copy filename
+vim.keymap.set("n", "<leader>yf", function()
+	local filename = vim.fn.expand("%:t")
+	vim.fn.setreg("+", filename)
+end, { desc = "yank filename" })
+
+-- Copy relative path
+vim.keymap.set("n", "<leader>yr", function()
+	local filepath = vim.fn.expand("%")
+	vim.fn.setreg("+", filepath)
+end, { desc = "yank relative path" })
+
+-- Copy absolute path
+vim.keymap.set("n", "<leader>ya", function()
+	local fullpath = vim.fn.expand("%:p")
+	vim.fn.setreg("+", fullpath)
+end, { desc = "yank absolute path" })
