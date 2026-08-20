@@ -19,7 +19,7 @@ return {
 					"pyright",
 					"stylua",
 					"tailwindcss",
-					"tsgo",
+					"tsc",
 				},
 			},
 		},
