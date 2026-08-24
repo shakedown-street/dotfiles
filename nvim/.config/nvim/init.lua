@@ -143,3 +143,12 @@ vim.keymap.set("n", "<leader>ya", function()
 	local fullpath = vim.fn.expand("%:p")
 	vim.fn.setreg("+", fullpath)
 end, { desc = "yank absolute path" })
+
+-- Grail note
+local grail = vim.fn.expand("~/grail/notes.md")
+
+vim.keymap.set("n", "<leader>n", function()
+	vim.cmd("edit " .. vim.fn.fnameescape(grail))
+	vim.cmd("keepjumps normal! G")
+	-- vim.api.nvim_put({ "## " .. os.date("%Y-%m-%d %H:%M"), "" }, "l", true, true)
+end, { desc = "note" })
