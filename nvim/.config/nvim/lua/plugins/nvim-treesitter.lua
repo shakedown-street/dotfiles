@@ -16,6 +16,7 @@ return {
 			"kdl",
 			"lua",
 			"markdown",
+			"markdown_inline",
 			"prisma",
 			"python",
 			"scss",

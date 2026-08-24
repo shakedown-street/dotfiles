@@ -2,7 +2,7 @@
 
 Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/)
 
-#### Install stow
+## Install stow
 
 Homebrew:
 
@@ -10,7 +10,7 @@ Homebrew:
 brew install stow
 ```
 
-#### Usage
+## Usage
 
 Clone the repo into your home directory and run stow to install symlinks:
 
@@ -28,7 +28,7 @@ stow -D zsh
 
 Since files are symlinked, you can edit files in the repo and they'll be automatically applied. To update just run `git pull`.
 
-#### MacOS
+## MacOS
 
 On MacOS with homebrew installed you can instead use the install script:
 
