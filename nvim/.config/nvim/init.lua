@@ -148,7 +148,34 @@ end, { desc = "yank absolute path" })
 local grail = vim.fn.expand("~/grail/notes.md")
 
 vim.keymap.set("n", "<leader>n", function()
+	local bufnr = vim.fn.bufnr(grail)
+
+	-- Grail is already open/loaded
+	if bufnr ~= -1 then
+		local winid = vim.fn.bufwinid(bufnr)
+
+		if winid ~= -1 then
+			-- Already visible in a window
+			vim.api.nvim_set_current_win(winid)
+		else
+			-- Loaded but not currently visible.
+			-- `hide` avoids errors if the current buffer has modifications.
+			vim.cmd("hide buffer " .. bufnr)
+		end
+
+		vim.cmd("keepjumps normal! Gzt")
+		return
+	end
+
+	-- First time opening it
 	vim.cmd("edit " .. vim.fn.fnameescape(grail))
-	vim.cmd("keepjumps normal! G")
-	-- vim.api.nvim_put({ "## " .. os.date("%Y-%m-%d %H:%M"), "" }, "l", true, true)
+	vim.cmd("keepjumps normal! Gzt")
+
+	local date = os.date("%Y-%m-%d")
+	local heading = "## " .. date
+	local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+
+	if not vim.tbl_contains(lines, heading) then
+		vim.api.nvim_put({ "", heading, "" }, "l", true, true)
+	end
 end, { desc = "note" })
