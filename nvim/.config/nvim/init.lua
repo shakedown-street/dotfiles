@@ -20,6 +20,10 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
