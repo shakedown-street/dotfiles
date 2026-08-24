@@ -209,8 +209,7 @@ keybinds clear-defaults=true {
     renametab {
         bind "esc" { UndoRenameTab; SwitchToMode "tab"; }
     }
-    shared_among "renametab" "renamepane" {
-        bind "Ctrl c" { SwitchToMode "locked"; }
+    shared_among "renametab" "renamepane" { bind "Ctrl c" { SwitchToMode "locked"; }
     }
     renamepane {
         bind "esc" { UndoRenamePane; SwitchToMode "pane"; }
@@ -268,6 +267,13 @@ theme "nord"
 // Default: normal
 // 
 default_mode "locked"
+
+// Whether stacked panes display as a list with the expanded pane pinned to the bottom
+// Default: true
+//
+stacked_pane_list false
+
+pane_frame_style "full"
  
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
