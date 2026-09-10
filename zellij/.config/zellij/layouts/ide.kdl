@@ -24,7 +24,8 @@ layout {
         pane stacked=true {
             pane name="lazygit" command="lazygit"
             pane name="yazi" command="yazi"
-            pane name="opencode" command="opencode"
+            pane name="codex" command="codex"
+            pane name="claude" command="claude"
         }
     }
 }

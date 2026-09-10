@@ -17,18 +17,15 @@ if [[ -x /opt/homebrew/bin/brew ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv >/dev/null 2>&1; then
-    if [[ -z "$VIRTUAL_ENV" ]]; then
-        eval "$(pyenv init - zsh)"
-    fi
-fi
-
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+
+# uv
+export PATH="/Users/pork/.local/bin:$PATH"
+
+# java
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # completion
 zstyle ':completion:*' use-cache on
