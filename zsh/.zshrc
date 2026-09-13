@@ -22,7 +22,7 @@ export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 
 # uv
-export PATH="/Users/pork/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # java
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
